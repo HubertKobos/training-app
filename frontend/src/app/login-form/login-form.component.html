@@ -1,0 +1,71 @@
+<div class="flex center-content">
+    <ul class="button-list">
+        <li>
+            <p-button label="Login" id="tab-login" (click)="onLoginTab()" [disabled]="active === 'login'" size="small"/>
+        </li>
+        <li>
+            <p-button label="Register" id="tab-register" (click)="onRegisterTab()" [disabled]="active === 'register'" size="small"/>
+        </li>
+    </ul>
+
+</div>
+<div *ngIf="active === 'login'">
+    <form (ngSubmit)="onSubmitLogin()" class="flex flex-column gap-2 center-content">
+        <label for="username">Username</label>
+        <input 
+            pInputText 
+            class="custom-input"
+            id="username" 
+            name="username"  
+            [(ngModel)]="login" />
+            
+        <label for="password">Password</label>
+        <input 
+            class="custom-input"
+            id="password" 
+            name="password"  
+            type="password"
+            [(ngModel)]="password" />
+    
+        <p-button type="submit" label="Sign in"></p-button>
+    </form>
+</div>
+
+<div *ngIf="active === 'register'">
+    <form (ngSubmit)="onSubmitRegister()" class="flex flex-column gap-2 center-content">
+        <label for="firstName">First Name</label>
+        <input 
+            pInputText 
+            class="custom-input"
+            id="firstName" 
+            name="firstName"  
+            [(ngModel)]="firstName" />
+            
+
+        <label for="lastName">Last Name</label>
+        <input 
+            pInputText 
+            class="custom-input"
+            id="lastName" 
+            name="lastName"  
+            [(ngModel)]="lastName" />
+            
+        <label for="login">Login</label>
+        <input 
+            pInputText 
+            class="custom-input"
+            id="login" 
+            name="login"  
+            [(ngModel)]="login" />
+
+        <label for="password">Password</label>
+        <input 
+            class="custom-input"
+            id="password" 
+            name="password"  
+            type="password"
+            [(ngModel)]="password" />
+    
+        <p-button type="submit" label="Register"></p-button>
+    </form>
+</div>

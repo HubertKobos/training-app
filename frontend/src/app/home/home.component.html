@@ -1,0 +1,78 @@
+<div class="content-wrapper">
+        <!-- Add training button -->
+    <button
+    type="button"
+    pButton
+    icon="pi pi-plus"
+    label="Add Training"
+    (click)="toggleAddPopup()"
+    class="add-training-button"
+    ></button>
+
+    <!-- Add training Popup -->
+    <app-add-training-popup
+    [(display)]="displayAddPopup"
+    (confirm)="onConfirmAdd($event)"
+    header="Add Training"
+    ></app-add-training-popup>
+
+    <div>
+        <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Distance (km)</th>
+                    <th>Time</th>
+                    <th>Kcal</th>
+                    <th>Comment</th>
+                    <th>Average Speed</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-training>
+                <tr>
+                    <td>{{ training.id }}</td>
+                    <td>{{ training.date }}</td>
+                    <td>{{ training.distanceKm }}</td>
+                    <td>{{ training.time }}</td>
+                    <td>{{ training.kcal }}</td>
+                    <td>{{ training.comment.length > 20 ? training.comment.substring(0, 15) + '...' : training.comment }}</td>
+                    <td>{{ training.averageSpeed }} km/h</td>
+                    <td>
+                        <button
+                            type="button"
+                            pButton
+                            icon="pi pi-file-edit"
+                            label="Edit"
+                            severity="help"
+                            (click)="toggleEditPopup(training)"
+                            class="action-button"
+                        ></button>
+                        <button
+                            type="button"
+                            pButton
+                            icon="pi pi-trash"
+                            label="Delete"
+                            severity="danger"
+                            (click)="confirmDelete(training)"
+                            #deleteButton
+                            class="action-button"
+                        ></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>
+
+<!-- Edit training -->
+<app-edit-training-popup
+    [training]="selectedTraining"
+    [(display)]="displayEditPopup"
+    (confirm)="onConfirmEdit($event)"
+    header="Edit Training"
+></app-edit-training-popup>
+
+<p-confirmPopup></p-confirmPopup>

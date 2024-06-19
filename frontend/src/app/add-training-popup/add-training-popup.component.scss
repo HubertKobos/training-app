@@ -1,0 +1,43 @@
+.training-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    min-height: 100px; 
+}
+
+.form-group .form-control {
+    width: 100%;
+}
+
+
+:host ::ng-deep .p-datepicker {
+    transform: scale(0.8); 
+}
+
+.custom-dialog ::ng-deep .p-dialog {
+    width: 40vw !important; 
+    height: auto; 
+}
+

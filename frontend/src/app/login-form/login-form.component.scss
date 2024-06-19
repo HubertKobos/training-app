@@ -1,0 +1,48 @@
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.gap-2 {
+    gap: 2rem; 
+}
+
+.center-content {
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-input-container {
+    display: flex;
+    justify-content: center; 
+    gap: 1rem; 
+}
+
+.custom-input {
+    padding: 8px; 
+    font-size: 16px; 
+    border-radius: 8px; 
+    border: 1px solid #ccc; 
+    width: 100%; 
+    max-width: 300px; 
+    box-sizing: border-box; 
+}
+
+.custom-input:focus {
+    outline: none; 
+    border-color: #007bff; 
+}
+
+.button-list {
+    display: flex;
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    margin-bottom: 20px;
+    margin-top: 30px;
+    gap: 1rem; 
+}
+

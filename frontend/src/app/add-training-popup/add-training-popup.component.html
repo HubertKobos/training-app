@@ -1,0 +1,47 @@
+<p-dialog header="Add Training" [header]="header" [modal]="true" [(visible)]="display" [closable]="false" class="custom-dialog">
+    <div class="training-form">
+        <!-- Date -->
+        <div class="form-group">
+            <p-calendar [(ngModel)]="training.date" dateFormat="yy-mm-dd" showIcon="true" [readonlyInput]="true" [showOnFocus]="false" required>
+            </p-calendar>
+            <div *ngIf="!training.date">
+                <small class="error-text">Date is required.</small>
+            </div>
+        </div>
+        
+        <!-- Distance -->
+        <div class="form-group">
+            <label>Distance (km):</label>
+            <input type="number" [(ngModel)]="training.distanceKm" class="form-control" required/>
+            <div *ngIf="!training.distanceKm">
+                <small class="error-text">Distance is required.</small>
+            </div>
+        </div>
+    
+        <!-- Time -->
+        <div class="form-group">
+            <p-calendar [(ngModel)]="training.time" [showTime]="true" [hourFormat]="'24'" [timeOnly]="true" [showSeconds]="true" required></p-calendar>
+            <div *ngIf="!isTimeMoreThan20SecondsFromMidnight(training.time)">
+                <small class="error-text">Time must be more than 20 seconds.</small>
+            </div>
+        </div>
+    
+        <!-- kcal -->
+        <div class="form-group">
+            <label>kcal:</label>
+            <input type="number" [(ngModel)]="training.kcal" class="form-control"/>
+        </div>
+    
+        <!-- Comment -->
+        <div class="form-group">
+            <label>Comment:</label>
+            <textarea [(ngModel)]="training.comment" class="form-control"></textarea>
+        </div>
+    
+    </div>
+    
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="onConfirm()" label="Confirm"></button>
+        <button type="button" pButton icon="pi pi-times" (click)="onCancel()" label="Cancel"></button>
+    </p-footer>
+</p-dialog>

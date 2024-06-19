@@ -1,0 +1,5 @@
+<header class="app-header">
+    <img src={{logoSrc}} class="app-logo" alt="logo">
+    <h1 class="app-title">{{pageTitle}}</h1>
+    <p-button *ngIf="isUserLogged" class="header-button" label="Logout" severity="danger" (click)="logoutEvent.emit()"/>
+</header>

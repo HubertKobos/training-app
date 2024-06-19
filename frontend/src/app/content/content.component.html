@@ -1,0 +1,14 @@
+<div>
+    <app-header
+        [pageTitle] = "'Training app'"
+        [logoSrc] = "'assets/images/logo.png'"
+        (logoutEvent)="onLogout()"
+        [isUserLogged]="isUserLogged"
+    ></app-header>
+
+    <app-welcome-content (onSubmitLoginEvent)="onLogin($event)" *ngIf="componentToShow == 'login'"/>
+    <app-login-form (onSubmitLoginEvent)="onLogin($event)" (onSubmitRegisterEvent)="onRegister($event)" *ngIf="componentToShow == 'login'" />
+    <app-home *ngIf="componentToShow == 'home'"/>
+
+    
+</div>
